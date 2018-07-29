@@ -31,7 +31,7 @@ defmodule Ueberauth.Strategy.Quickbooks do
     opts = [
       redirect_uri: callback_url(conn),
       scope: scope,
-      state: random_string(32),
+      state: random_string(32)
     ]
 
     opts =
@@ -132,7 +132,7 @@ defmodule Ueberauth.Strategy.Quickbooks do
 
   def random_string(length) do
     :crypto.strong_rand_bytes(length)
-    |> Base.url_encode64
+    |> Base.url_encode64()
     |> binary_part(0, length)
   end
 end
